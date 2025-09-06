@@ -28,3 +28,20 @@ Route::prefix('/')
 
 
 Route::resource('users', App\Http\Controllers\usersController::class);
+
+Route::get('/login', function () {
+    return view('login'); // login.blade.php
+})->name('login');
+
+Route::post('/login', function (\Illuminate\Http\Request $request) {
+    // Ovde možeš proveriti korisnika iz baze
+    $username = $request->username;
+    $password = $request->password;
+
+    // Za sada, samo redirect na main panel
+    return redirect()->route('main');
+})->name('login.post');
+
+Route::get('/main', function () {
+    return view('main'); // main.blade.php
+})->name('main');
