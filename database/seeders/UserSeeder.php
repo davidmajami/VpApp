@@ -1,0 +1,55 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+
+class UserSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
+    {
+        DB::table('users')->insert([
+            'user_id' => 1,
+            'ime' => 'Petar',
+            'prezime' => 'Petrović',
+            'username' => 'ppetrovic',
+            'password' => Hash::make('petar123'),
+            'uloga' => 'admin',
+            'telefon' => '0611234567',
+            'email' => 'petar@example.com',
+            'adresa' => 'Beogradska 12, Beograd',
+            'jmbg' => '0101990123456',
+        ]);
+
+        DB::table('users')->insert([
+            'user_id' => 2,
+            'ime' => 'Ana',
+            'prezime' => 'Anić',
+            'username' => 'aanic',
+            'password' => Hash::make('ana123'),
+            'uloga' => 'korisnik',
+            'telefon' => '0629876543',
+            'email' => 'ana@example.com',
+            'adresa' => 'Novosadska 45, Novi Sad',
+            'jmbg' => '0202990456789',
+        ]);
+
+        DB::table('users')->insert([
+            'user_id' => 3,
+            'ime' => 'Marko',
+            'prezime' => 'Marković',
+            'username' => 'mmarkovic',
+            'password' => Hash::make('marko123'),
+            'uloga' => 'prodavac',
+            'telefon' => '0634567890',
+            'email' => 'marko@example.com',
+            'adresa' => 'Niška 33, Niš',
+            'jmbg' => '0303990789123',
+        ]);
+    }
+}
