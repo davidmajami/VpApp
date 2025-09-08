@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\narudzbinaStoreRequest;
-use App\Http\Requests\narudzbinaUpdateRequest;
 use App\Models\Narudzbina;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
-
+use Illuminate\Support\Facades\Auth;
 class narudzbinasController extends Controller
 {
     public function index(Request $request): View
@@ -25,13 +23,21 @@ class narudzbinasController extends Controller
         return view('narudzbina.create');
     }
 
-    public function store(narudzbinaStoreRequest $request): RedirectResponse
+    public function store(Request $request): RedirectResponse
     {
-        $narudzbina = Narudzbina::create($request->validated());
+        $validated = $request->validate([
+        'nacin_placanja' => 'required|string',
+        'stavke' => 'required|string', // JSON
+        'ukupna_cena' => 'required|numeric',
+            ]);
 
-        session()->flash('success', 'Narudžbina uspešno kreirana!');
+            $validated['datum_narudzbine'] = now();
+            $validated['kupac_id'] = Auth::id() ?? 2; 
+            $validated['zaposleni_id'] = 1; 
+            Narudzbina::create($validated);
 
-        return redirect()->route('narudzbinas.index');
+            session()->flash('success', 'Narudžbina uspešno kreirana!');
+            return redirect()->route('narudzbinas.index');
     }
 
     public function show(Request $request, Narudzbina $narudzbina): View
@@ -48,9 +54,15 @@ class narudzbinasController extends Controller
         ]);
     }
 
-    public function update(narudzbinaUpdateRequest $request, Narudzbina $narudzbina): RedirectResponse
+    public function update(Request $request, Narudzbina $narudzbina): RedirectResponse
     {
-        $narudzbina->update($request->validated());
+        $validated = $request->validate([
+            'nacin_placanja' => 'required|string',
+            'stavke' => 'required|string',
+            'ukupna_cena' => 'required|numeric',
+        ]);
+
+        $narudzbina->update($validated);
 
         session()->flash('success', 'Narudžbina uspešno izmenjena!');
 

@@ -104,8 +104,11 @@
             </div>
             
             <div class="modal-footer">
-                <form action="{{ route('narudzbinas.index') }}" method="GET">
+                <form action="{{ route('narudzbinas.store') }}" method="POST" id="naplataForm">
+                    @csrf
                     <input type="hidden" name="nacin_placanja" id="placanjeInput">
+                    <input type="hidden" name="stavke" id="cartItemsInput">   <!-- promenjeno u 'stavke' -->
+                    <input type="hidden" name="ukupna_cena" id="totalPriceInput"> <!-- dodato za ukupnu cenu -->
                     <button type="submit" class="btn btn-success" id="naplatiBtn" disabled>Naplati</button>
                 </form>
             </div>
@@ -150,18 +153,29 @@
                 p.style.display = name.includes(query) ? 'block' : 'none';
             });
         }
-        document.addEventListener("DOMContentLoaded", function() {
-    const radioButtons = document.querySelectorAll("input[name='nacinPlacanja']");
-    const naplatiBtn = document.getElementById("naplatiBtn");
-    const placanjeInput = document.getElementById("placanjeInput");
-
-    radioButtons.forEach(radio => {
-        radio.addEventListener("change", function() {
-            naplatiBtn.disabled = false;
-            placanjeInput.value = this.value;
+        document.getElementById("naplataForm").addEventListener("submit", function() {
+            cartItemsInput.value = JSON.stringify(cart);
+            document.getElementById("totalPriceInput").value = total;
         });
-    });
-});
+        document.addEventListener("DOMContentLoaded", function() {
+            const radioButtons = document.querySelectorAll("input[name='nacinPlacanja']");
+            const naplatiBtn = document.getElementById("naplatiBtn");
+            const placanjeInput = document.getElementById("placanjeInput");
+            const cartItemsInput = document.getElementById("cartItemsInput");
+
+            radioButtons.forEach(radio => {
+                radio.addEventListener("change", function() {
+                    naplatiBtn.disabled = false;
+                    placanjeInput.value = this.value;
+                });
+            });
+
+            // Pre nego što forma ode na server, ubaci korpu u hidden input
+            document.getElementById("naplataForm").addEventListener("submit", function() {
+                cartItemsInput.value = JSON.stringify(cart);
+            });
+        });
+            
     </script>
 </body>
 </html>

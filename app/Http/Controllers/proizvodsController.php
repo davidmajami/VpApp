@@ -48,6 +48,14 @@ class ProizvodsController extends Controller
             'proizvod' => $proizvod,
         ]);
     }
+    public function poGrupi($id)
+    {
+        
+        $proizvodi = \App\Models\Proizvod::where('grupa_id', $id)->get();
+
+        return view('proizvods.index', compact('proizvodi'));
+    }
+
 
     public function update(proizvodUpdateRequest $request, Proizvod $proizvod): RedirectResponse
     {
