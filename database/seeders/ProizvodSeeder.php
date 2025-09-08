@@ -71,7 +71,7 @@ class ProizvodSeeder extends Seeder
                 'naziv' => 'Televizor LG 50"',
                 'cena' => 95000.00,
                 'slika' => 'tv.jpg',
-                'grupa_id' => 4,
+                'grupa_id' => 3,
             ],
         ]);
     }

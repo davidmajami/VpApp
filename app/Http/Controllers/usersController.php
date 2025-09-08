@@ -4,15 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\userStoreRequest;
 use App\Http\Requests\userUpdateRequest;
-use App\Models\User;
-use App\Models\user;
-use Illuminate\Http\RedirectResponse;
+use App\Models\User; 
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
 
 class usersController extends Controller
 {
-    public function index(Request $request): Response
+    public function index(Request $request): View
     {
         $users = User::all();
 
@@ -21,44 +20,45 @@ class usersController extends Controller
         ]);
     }
 
-    public function create(Request $request): Response
+    public function create(Request $request): View
     {
         return view('user.create');
     }
 
-    public function store(userStoreRequest $request): Response
+    public function store(userStoreRequest $request): RedirectResponse
     {
         $user = User::create($request->validated());
 
-        $request->session()->flash('user.id', $user->id);
+        session()->flash('success', 'Korisnik uspešno kreiran!');
 
         return redirect()->route('users.index');
     }
 
-    public function show(Request $request, user $user): Response
+
+    public function show(Request $request, User $user): View
     {
         return view('user.show', [
             'user' => $user,
         ]);
     }
 
-    public function edit(Request $request, user $user): Response
+    public function edit(Request $request, User $user): View
     {
         return view('user.edit', [
             'user' => $user,
         ]);
     }
 
-    public function update(userUpdateRequest $request, user $user): Response
+    public function update(userUpdateRequest $request, User $user): RedirectResponse
     {
         $user->update($request->validated());
 
-        $request->session()->flash('user.id', $user->id);
+        session()->flash('success', 'Korisnik uspešno izmenjen!');
 
         return redirect()->route('users.index');
     }
 
-    public function destroy(Request $request, user $user): Response
+    public function destroy(Request $request, User $user): RedirectResponse
     {
         $user->delete();
 

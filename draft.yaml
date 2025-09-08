@@ -1,4 +1,10 @@
 controllers:
-  users:
+  grupa_proizvodas:
+    resource: web
+  narudzbinas:
+    resource: web
+  proizvods:
+    resource: web
+  stavkenarudzbine:
     resource: web
   

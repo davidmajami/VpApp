@@ -15,7 +15,7 @@ class User extends Authenticatable
     use HasFactory;
     use Searchable;
     use HasApiTokens;
-
+    protected $primaryKey = 'user_id'; 
     protected $fillable = [
         'ime',
         'prezime',

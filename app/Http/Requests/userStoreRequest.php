@@ -18,9 +18,17 @@ class userStoreRequest extends FormRequest
      * Get the validation rules that apply to the request.
      */
     public function rules(): array
-    {
-        return [
-            'user' => ['required'],
-        ];
-    }
+        {
+            return [
+                'ime' => 'required|string|max:255',
+                'jmbg' => 'required|string|max:13',
+                'username' => 'required|string|max:255',
+                'uloga' => 'required|in:admin,zaposleni,kupac',
+                'password' => 'sometimes|nullable|string|min:6|confirmed',
+                'email' => 'nullable|email',
+                'adresa' => 'nullable|',
+                'prezime' => 'nullable|string|max:255',
+                'telefon' => 'nullable|string|max:20',
+            ];
+        }
 }

@@ -1,11 +1,35 @@
 created:
-    - app/Http/Controllers/usersController.php
-    - tests/Feature/Http/Controllers/usersControllerTest.php
-    - app/Http/Requests/userStoreRequest.php
-    - app/Http/Requests/userUpdateRequest.php
-    - resources/views/user/index.blade.php
-    - resources/views/user/create.blade.php
-    - resources/views/user/show.blade.php
-    - resources/views/user/edit.blade.php
+    - app/Http/Controllers/grupa_proizvodasController.php
+    - app/Http/Controllers/narudzbinasController.php
+    - app/Http/Controllers/proizvodsController.php
+    - app/Http/Controllers/stavkenarudzbineController.php
+    - tests/Feature/Http/Controllers/grupa_proizvodasControllerTest.php
+    - tests/Feature/Http/Controllers/narudzbinasControllerTest.php
+    - tests/Feature/Http/Controllers/proizvodsControllerTest.php
+    - tests/Feature/Http/Controllers/stavkenarudzbineControllerTest.php
+    - app/Http/Requests/grupa_proizvodaStoreRequest.php
+    - app/Http/Requests/grupa_proizvodaUpdateRequest.php
+    - app/Http/Requests/narudzbinaStoreRequest.php
+    - app/Http/Requests/narudzbinaUpdateRequest.php
+    - app/Http/Requests/proizvodStoreRequest.php
+    - app/Http/Requests/proizvodUpdateRequest.php
+    - app/Http/Requests/stavkenarudzbineStoreRequest.php
+    - app/Http/Requests/stavkenarudzbineUpdateRequest.php
+    - resources/views/grupaProizvoda/index.blade.php
+    - resources/views/grupaProizvoda/create.blade.php
+    - resources/views/grupaProizvoda/show.blade.php
+    - resources/views/grupaProizvoda/edit.blade.php
+    - resources/views/narudzbina/index.blade.php
+    - resources/views/narudzbina/create.blade.php
+    - resources/views/narudzbina/show.blade.php
+    - resources/views/narudzbina/edit.blade.php
+    - resources/views/proizvod/index.blade.php
+    - resources/views/proizvod/create.blade.php
+    - resources/views/proizvod/show.blade.php
+    - resources/views/proizvod/edit.blade.php
+    - resources/views/stavkenarudzbine/index.blade.php
+    - resources/views/stavkenarudzbine/create.blade.php
+    - resources/views/stavkenarudzbine/show.blade.php
+    - resources/views/stavkenarudzbine/edit.blade.php
 updated:
     - routes/web.php

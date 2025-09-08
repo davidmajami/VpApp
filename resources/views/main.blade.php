@@ -9,13 +9,17 @@
   <div class="panel-container">
     <h2>Vp Sistem</h2>
     <div class="buttons-container">
-      <button onclick="location.href='proizvodi.html'">Proizvodi</button>
-      <button onclick="location.href='grupe_proizvoda.html'">Grupe proizvoda</button>
-      <button onclick="location.href='zaposleni.html'">Zaposleni</button>
-      <button onclick="location.href='narudzbine.html'">Narudžbine</button>
+        <button onclick="location.href='{{ route('proizvods.index') }}'">Proizvodi</button>
+        <button onclick="location.href='{{ route('grupa_proizvodas.index') }}'">Grupe proizvoda</button>
+        <button onclick="location.href='{{ route('users.index') }}'">Zaposleni</button>
+        <button onclick="location.href='{{ route('narudzbinas.index') }}'">Narudžbine</button>
+
     </div>
     <div class="logout-container">
-      <button onclick="location.href='login.html'">Logout</button>
+      <form action="{{ route('logout') }}" method="POST">
+        @csrf
+        <button type="submit">Logout</button>
+      </form>
     </div>
   </div>
 </body>
