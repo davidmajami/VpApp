@@ -1,4 +1,6 @@
 controllers:
+  users:
+    resource: web
   grupa_proizvodas:
     resource: web
   narudzbinas:
