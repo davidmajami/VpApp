@@ -30,5 +30,20 @@
             </tbody>
         </table>
     </div>
+        <div style="text-align:center; margin-top:30px;">
+            <button onclick="history.back()" style="
+                padding: 10px 25px;
+                background:#4a90e2;
+                color:white;
+                border:none;
+                border-radius:6px;
+                font-size:16px;
+                cursor:pointer;
+                transition: background 0.3s;
+            " onmouseover="this.style.background='#357ab8'" onmouseout="this.style.background='#4a90e2'">
+                Nazad
+            </button>
+        </div>
+
 </div>
 @endsection
