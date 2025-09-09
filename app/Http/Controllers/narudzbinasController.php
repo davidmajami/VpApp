@@ -27,7 +27,7 @@ class narudzbinasController extends Controller
     {
         $validated = $request->validate([
         'nacin_placanja' => 'required|string',
-        'stavke' => 'required|string', // JSON
+        'stavke' => 'required|string', 
         'ukupna_cena' => 'required|numeric',
             ]);
 

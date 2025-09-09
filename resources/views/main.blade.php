@@ -12,7 +12,7 @@
         <button onclick="location.href='{{ route('proizvods.index') }}'">Proizvodi</button>
         <button onclick="location.href='{{ route('grupa_proizvodas.index') }}'">Grupe proizvoda</button>
         
-        {{-- Samo admin vidi zaposlene --}}
+        
         @if(auth()->user() && auth()->user()->uloga === 'admin')
             <button onclick="location.href='{{ route('users.index') }}'">Zaposleni</button>
         @endif

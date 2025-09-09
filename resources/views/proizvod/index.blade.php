@@ -48,14 +48,14 @@
 <body>
     <h2>Kreiranje narudžbine</h2>
 
-    <!-- SEARCH -->
+    
     <div class="search-box">
         <input type="text" id="searchInput" placeholder="Search">
         <button onclick="searchProducts()">Pretraži</button>
     </div>
 
     <div class="container">
-        <!-- Lista proizvoda -->
+       
         <div class="products" id="productsList">
             @foreach ($proizvods as $proizvod)
                 <div class="product" data-name="{{ strtolower($proizvod->naziv) }}">
@@ -71,7 +71,7 @@
             @endforeach
         </div>
 
-        <!-- Korpa -->
+        
         <div class="cart">
             <h3>Stavke narudžbine</h3>
             <ul id="cartItems"></ul>
@@ -83,7 +83,7 @@
             </div>
             <p><strong>Cena:</strong> <span id="totalPrice">0</span> din</p>
         </div>
-        <!-- Modal za izbor plaćanja -->
+        
         <div class="modal fade" id="placanjeModal" tabindex="-1" aria-labelledby="placanjeModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -107,8 +107,8 @@
                 <form action="{{ route('narudzbinas.store') }}" method="POST" id="naplataForm">
                     @csrf
                     <input type="hidden" name="nacin_placanja" id="placanjeInput">
-                    <input type="hidden" name="stavke" id="cartItemsInput">   <!-- promenjeno u 'stavke' -->
-                    <input type="hidden" name="ukupna_cena" id="totalPriceInput"> <!-- dodato za ukupnu cenu -->
+                    <input type="hidden" name="stavke" id="cartItemsInput">   
+                    <input type="hidden" name="ukupna_cena" id="totalPriceInput"> 
                     <button type="submit" class="btn btn-success" id="naplatiBtn" disabled>Naplati</button>
                 </form>
             </div>
@@ -170,7 +170,7 @@
                 });
             });
 
-            // Pre nego što forma ode na server, ubaci korpu u hidden input
+          
             document.getElementById("naplataForm").addEventListener("submit", function() {
                 cartItemsInput.value = JSON.stringify(cart);
             });

@@ -20,7 +20,7 @@
 
         .container {
             display: grid;
-            grid-template-columns: repeat(3, 1fr); /* Tačno 3 po redu */
+            grid-template-columns: repeat(3, 1fr); 
             gap: 30px;
             justify-content: center;
             padding: 0 20px 50px 20px;
@@ -68,22 +68,8 @@
             transform: translateY(-2px);
         }
 
-        /* Responsive za male ekrane */
-        @media (max-width: 700px) {
-            .container {
-                grid-template-columns: repeat(2, 1fr); /* 2 po redu na manjim ekranima */
-            }
-        }
-
-        @media (max-width: 450px) {
-            .container {
-                grid-template-columns: 1fr; /* 1 po redu na mobilnim uređajima */
-            }
-            .card {
-                height: 100px;
-                font-size: 16px;
-            }
-        }
+        
+        
     </style>
 </head>
 <body>

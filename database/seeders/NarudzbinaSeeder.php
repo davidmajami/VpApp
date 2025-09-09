@@ -13,15 +13,15 @@ class NarudzbinaSeeder extends Seeder
      */
     public function run(): void
     {
-        // Primer narudžbina
+       
         DB::table('narudzbine')->insert([
             [
                 'narudzbina_id' => 1,
                 'datum_narudzbine' => Carbon::now()->subDays(3),
                 'nacin_placanja' => 'gotovina',
                 'ukupna_cena' => 2500,
-                'kupac_id' => 2,       // Ana (kupac)
-                'zaposleni_id' => 3,   // Marko (prodavac)
+                'kupac_id' => 2,       
+                'zaposleni_id' => 3,   
                 'created_at' => Carbon::now()->subDays(3),
                 'updated_at' => Carbon::now()->subDays(3),
             ],

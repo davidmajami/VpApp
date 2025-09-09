@@ -37,7 +37,7 @@
     @endforeach
 </table>
 
-<!-- Dugme za povratak na glavnu stranicu -->
+
 <div class="mt-3">
     <a href="{{ route('main') }}" class="btn btn-info">Nazad</a>
 </div>

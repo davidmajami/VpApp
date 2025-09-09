@@ -31,7 +31,7 @@
     </div>
 </div>
 
-<!-- Dugme za povratak -->
+
 <div style="text-align:center; margin-top:30px;">
     <button onclick="history.back()" style="
         padding: 10px 25px;

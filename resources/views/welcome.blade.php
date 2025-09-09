@@ -10,7 +10,7 @@
 <div class="login-container">
     <h2>Login</h2>
 
-    <!-- Prikaz greške -->
+    
     @if ($errors->any())
         <div class="error-messages">
             <ul>
